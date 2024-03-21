@@ -14,10 +14,7 @@ import java.util.Map;
 @RefreshScope
 public class CustomerConfigTestController {
 
-    @Autowired
-    private Environment environment;
-
-    /*@Value("${globale.params.p1}")
+    @Value("${globale.params.p1}")
     private String p1;
 
     @Value("${globale.params.p2}")
@@ -27,15 +24,16 @@ public class CustomerConfigTestController {
     private String x;
 
     @Value("${customer.params.y}")
-    private String y;*/
+    private String y;
+
 
     @GetMapping("/params")
     public Map<String,String> params(){
         Map<String,String> params = new HashMap<>();
-        params.put("p1",environment.getProperty("globale.params.p1"));
-        params.put("p2", environment.getProperty("globale.params.p2"));
-        params.put("x", environment.getProperty("customer.params.x"));
-        params.put("y",environment.getProperty("customer.params.y"));
+        params.put("p1",p1);
+        params.put("p2", p2);
+        params.put("x", x);
+        params.put("y",y);
         return params;
     }
 }
